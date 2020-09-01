@@ -1,0 +1,16 @@
+{
+  "__type__": "cc.Material",
+  "_name": "",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "354a29ca-a868-4038-a8b1-68bebf1c554c"
+  },
+  "_defines": {
+    "USE_TEXTURE": true,
+    "USE_ALPHA_TEST": true
+  },
+  "_props": {
+    "alphaThreshold": 0.1
+  }
+}
