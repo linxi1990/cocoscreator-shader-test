@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "f5461300-483a-4fda-a8f7-6b6186cd4c64",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 227,
+  "height": 252,
   "platformSettings": {},
   "subMetas": {
     "book_icon1@3x": {

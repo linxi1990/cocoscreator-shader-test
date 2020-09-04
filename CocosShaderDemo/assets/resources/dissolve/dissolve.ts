@@ -41,6 +41,7 @@ export default class NewClass extends cc.Component {
         // this._material = this.getComponent(cc.Sprite).sharedMaterials[0];
     }
 
+    //动态赋值材质
     touchStartCallback(){
         cc.loader.loadRes('dissolve/dissolve', cc.Material, (err, asset) => {
             if (err) {
@@ -49,7 +50,7 @@ export default class NewClass extends cc.Component {
             
             this.node.getComponent(cc.Sprite).setMaterial(0, asset);
             this.node.getComponent(cc.Sprite).markForRender(true);
-            this._material = this.node.getComponent(cc.Sprite).sharedMaterials[0];
+            this._material = this.node.getComponent(cc.Sprite).getMaterial(0);
 
             this._material.setProperty('nosisetexture', this.nosisetexture);
             this._material.setProperty('u_lut', this.u_lut);
@@ -61,7 +62,7 @@ export default class NewClass extends cc.Component {
         if(this._start){
             this._time += 0.1;
             this._time = this._time >= 1000 ? 0 : this._time;
-            this._material = this.getComponent(cc.Sprite).sharedMaterials[0];
+            this._material = this.getComponent(cc.Sprite).getMaterial(0);
             
             this._material.setProperty('time', this._time);
         }

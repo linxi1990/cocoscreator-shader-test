@@ -1,15 +1,19 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "masico",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "c41a269a-93c0-4e9f-b21d-28233616dee6"
   },
-  "_defines": {
-    "USE_TEXTURE": true
-  },
-  "_props": {
-    "mascio": 0.08
+  "_techniqueData": {
+    "0": {
+      "props": {
+        "mascio": 0.08
+      },
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
   }
 }

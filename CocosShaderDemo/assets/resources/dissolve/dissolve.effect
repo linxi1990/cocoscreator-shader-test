@@ -68,7 +68,7 @@ CCProgram fs %{
   uniform sampler2D u_lut;
   uniform properties{
     float time;
-  }
+  };
 
   void main () {
     // vec4 o = vec4(1, 1, 1, 1);

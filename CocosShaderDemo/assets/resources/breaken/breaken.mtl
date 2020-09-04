@@ -1,13 +1,16 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "breaken",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "c45cadc6-4710-4349-88f3-7e1973c0f738"
   },
-  "_defines": {
-    "USE_TEXTURE": true
-  },
-  "_props": {}
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
+  }
 }

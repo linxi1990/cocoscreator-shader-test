@@ -69,14 +69,11 @@ CCProgram fs %{
   // uniform sampler2D mixtexture;
   // #endif
   uniform sampler2D mixtexture;
-
-  
-
   // const float r = 0.3;
 
-  // uniform properties{
-  //   vec2 position;
-  // }
+  uniform eraser{
+    float isOpen;
+  };
 
   void main () {
     vec4 o = vec4(1, 1, 1, 1);
@@ -100,8 +97,11 @@ CCProgram fs %{
     // #if USE_TEXTURE1
     //   o1 *= texture(texture, uv);
     // #endif
-    vec4 o1 = texture2D(mixtexture, uv);
-    o += -o1;
+    if(isOpen > 0.){
+      vec4 o1 = texture2D(mixtexture, uv);
+      o += -o1;
+    }
+
     gl_FragColor = o;
   }
 }%

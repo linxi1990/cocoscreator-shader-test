@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "36c3bb09-1f06-4f46-92f4-c2c67238d3c2",
   "type": "sprite",
   "wrapMode": "repeat",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 64,
+  "height": 64,
   "platformSettings": {},
   "subMetas": {
     "book2": {

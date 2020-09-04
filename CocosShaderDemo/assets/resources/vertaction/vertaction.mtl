@@ -1,13 +1,16 @@
 {
   "__type__": "cc.Material",
-  "_name": "",
+  "_name": "vertaction",
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
     "__uuid__": "758e6c07-f1f1-43d7-b275-cf43687cf257"
   },
-  "_defines": {
-    "USE_TEXTURE": true
-  },
-  "_props": {}
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
+  }
 }

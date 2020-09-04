@@ -41,9 +41,7 @@ export default class SpriteShaderUpdate extends cc.Component {
     _time = 0;
 
     onEnable() {
-        if (this.sprite) {
-            this._material = this.sprite.sharedMaterials[0];
-        }
+        this._material = this.getComponent('myrender').getMaterial(0);
     }
 
     update(dt) {
