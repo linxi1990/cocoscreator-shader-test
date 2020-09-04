@@ -1,3 +1,6 @@
+/**
+ * 支持原生端自定义渲染
+ */
 const gfx = cc.gfx;
 const {ccclass, property} = cc._decorator;
 
