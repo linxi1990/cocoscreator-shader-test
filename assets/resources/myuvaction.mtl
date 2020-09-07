@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.Material",
+  "_name": "myuvaction",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "13856fcc-3c12-4f83-bec9-b802279fd7a7"
+  },
+  "_techniqueIndex": 0,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      },
+      "props": {
+        "texture": {
+          "__uuid__": "006d950a-aa1d-4086-95d5-726cde8aa570"
+        }
+      }
+    }
+  }
+}
