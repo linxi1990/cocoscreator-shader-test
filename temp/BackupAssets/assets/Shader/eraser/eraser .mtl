@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.Material",
+  "_name": "uvacton",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "e18c3fcd-e6ac-4fe6-ae8d-ad35afbeb1ec"
+  },
+  "_techniqueIndex": -1,
+  "_techniqueData": {
+    "0": {
+      "defines": {
+        "USE_TEXTURE": true
+      }
+    }
+  }
+}
