@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lut",
+    "texture": "f6f0dbf1-8498-4f90-a6ee-0ae8f7f1797c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      256,
+      4
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      256,
+      4
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

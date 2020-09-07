@@ -1,0 +1,1 @@
+window._CCSettings={platform:"android",groupList:["default","PostCamera","draweraser"],collisionMatrix:[[true,null,true],[false,false],[true,false,true]],hasResourcesBundle:true,hasStartSceneBundle:false,remoteBundles:[],subpackages:[],launchScene:"db://assets/Start.fire",orientation:"",server:"",jsList:[],bundleVers:{internal:"baf34",resources:"ed002",main:"57f04"}};

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "book_icon1@3x",
+    "texture": "f5461300-483a-4fda-a8f7-6b6186cd4c64",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      227,
+      252
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      227,
+      252
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
