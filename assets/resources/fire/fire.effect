@@ -12,6 +12,7 @@ CCEffect %{
         cullMode: none
       properties:
         texture: { value: white }
+        # textureArea: { value: white }
         alphaThreshold: { value: 0.5 }
         time: { value: 0.0}
 }%
@@ -68,6 +69,7 @@ CCProgram fs %{
   in vec2 v_uv0;
   uniform sampler2D texture;
   #endif
+  uniform sampler2D textureArea;
   uniform properties{
     float time;
   };
@@ -82,38 +84,68 @@ CCProgram fs %{
     float temp = getArea(x1, x2, vec2(v_uv0.xy)) + getArea(x2, x3, vec2(v_uv0.xy)) 
       + getArea(x3, x4, vec2(v_uv0.xy)) + getArea(x1, x4, vec2(v_uv0.xy));
     float s = (distance(x1, x2) + distance(x3, x4)) * 0.5;
-    if(clamp(temp - s, 0.0, 1.0) > 0.8){
-      vec4 o = texture2D(texture, v_uv0);
-      o.a = 0.;
-      gl_FragColor = o;
+    // if(clamp(temp - s, 0.0, 1.0) > 0.9){
+    //   vec4 o = texture2D(texture, v_uv0);
+    //   o.a = 0.;
+    //   gl_FragColor = o;
+    // }
+    // else{
+    //   // vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.01, 0.02));
+    //   // float gradientBlend = 1.0 - v_uv0.y;
+
+    //   // gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.06)) + o)
+    //   //   * gradientBlend * gradientBlend  + vec4(1., 0., 0., 0.8);
+
+    //   vec4 t = texture2D(texture, v_uv0);
+    //   vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.1, 0.08));
+    //   // float gradientBlend = v_uv0.y * 5.0;
+    //   float gradientBlend = clamp(v_uv0.y * 10.0, 1.0, 10.0);
+    //   float col1 = smoothstep(0.5, 1.0, v_uv0.y);
+    //   float col2 = smoothstep(0., 0.5, v_uv0.y);
+
+    //   gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.06)) + o)
+    //     * gradientBlend * 
+    //       (vec4(0.150, 0.184, 0.084, 1.0) * col1 + vec4(0.25, 0.09, 0.0, 1.0) * col2);
+    // }
+    
+    vec4 t = texture2D(texture, v_uv0);
+    // float ratio = min(t.b, min(t.r, t.g));
+    // if(ratio >= 0.7){
+    //   discard;
+    // }
+    // gl_FragColor = t;
+    // else{
+    //   vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.01, 0.08));
+    //   // float gradientBlend = v_uv0.y * 5.0;
+    //   float gradientBlend = clamp(v_uv0.y * 10.0, 2.0, 9.0);
+    //   float col1 = smoothstep(0.5, 1.0, v_uv0.y);
+    //   float col2 = smoothstep(0., 0.5, v_uv0.y);
+
+    //   gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.06)) + o)
+    //     * gradientBlend * 
+    //       (vec4(0.150, 0.184, 0.084, 1.0) * col1 + vec4(0.25, 0.09, 0.0, 1.0) * col2);
+    // }
+    vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.02, 0.06));
+    vec4 c = texture2D(textureArea, v_uv0);
+    
+    float ratio = min(o.b, min(o.r, o.g));
+    if(ratio >= 0.99){
+      o.a = 0.0;
     }
     else{
-      // vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.01, 0.02));
-      // float gradientBlend = 1.0 - v_uv0.y;
-
-      // gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.06)) + o)
-      //   * gradientBlend * gradientBlend  + vec4(1., 0., 0., 0.8);
-
-      vec4 t = texture2D(texture, v_uv0);
-      vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.1, 0.08));
-      // float gradientBlend = v_uv0.y * 5.0;
-      float gradientBlend = clamp(v_uv0.y * 10.0, 2.0, 9.0);
-      float col1 = smoothstep(0.5, 1.0, v_uv0.y);
-      float col2 = smoothstep(0., 0.5, v_uv0.y);
-
-      gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.06)) + o)
-        * gradientBlend * 
-          (vec4(0.150, 0.184, 0.084, 1.0) * col1 + vec4(0.25, 0.09, 0.0, 1.0) * col2);
+      o.r = o.r / ratio;
+      o.g = o.g / ratio;
+      o.b = o.b / ratio;
+      o.a = ratio;
     }
-    // vec4 t = texture2D(texture, v_uv0);
-    // vec4 o = texture2D(texture, v_uv0 + mix(time, 0.15454, 0.04) * vec2(0.01, 0.02));
-    // // float gradientBlend = v_uv0.y * 5.0;
-    // float gradientBlend = clamp(v_uv0.y * 10.0, 2.0, 9.0);
-    // float col1 = smoothstep(0.5, 1.0, v_uv0.y);
-    // float col2 = smoothstep(0., 0.5, v_uv0.y);
+    o.a *= c.a;
+    // float gradientBlend = v_uv0.y * 5.0;
+    float gradientBlend = clamp(v_uv0.y * 100.0, 3.0, 9.0);
+    float col1 = smoothstep(0.5, 1.0, v_uv0.y);
+    float col2 = smoothstep(0., 0.5, v_uv0.y);
 
-    // gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.06)) + o)
-    //   * gradientBlend * 
-    //     (vec4(0.150, 0.184, 0.084, 1.0) * col1 + vec4(0.25, 0.09, 0.0, 1.0) * col2);
+    gl_FragColor = (texture2D(texture, v_uv0 + time * vec2(0, 0.07)) * o)
+      * gradientBlend * 
+        (vec4(0.150, 0.184, 0.084, 1.0) * col1 + vec4(0.25, 0.09, 0.0, 1.0) * col2);
   }
 }%

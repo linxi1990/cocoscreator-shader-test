@@ -22,18 +22,20 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
+    @property({type:cc.Texture2D})
+    textureArea:cc.Texture2D = null;
     _material = null;
 
     _time = 0;
-    start () {
-
+    onEnable () {
+        this._material = this.getComponent(cc.Sprite).getMaterial(0);
+        this._material.setProperty('textureArea', this.textureArea);
     }
 
     //
     update (dt) {
         this._time += 0.1;
         this._time = this._time >= 1000 ? 0 : this._time;
-        this._material = this.getComponent(cc.Sprite).sharedMaterials[0];
         
         this._material.setProperty('time', this._time);
     }

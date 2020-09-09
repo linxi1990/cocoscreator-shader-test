@@ -6,10 +6,16 @@
   "_effectAsset": {
     "__uuid__": "7bbd253e-108f-4841-8f4b-c29d027093f5"
   },
+  "_techniqueIndex": 0,
   "_techniqueData": {
     "0": {
       "defines": {
         "USE_TEXTURE": true
+      },
+      "props": {
+        "textureArea": {
+          "__uuid__": "6928a0cb-e8f7-43d2-a029-7c37f95c763b"
+        }
       }
     }
   }
